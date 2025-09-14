@@ -338,12 +338,17 @@ const BadgesPage = () => {
                       </div>
                     </div>
                     
-                    <div className="mt-4 space-y-2">
-                      <Button variant="outline" size="sm" className="w-full">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View on Blockchain
-                      </Button>
-                    </div>
+                    <a
+  href={`https://polygonscan.com/token/${badge.tokenId}`} // Example: PolygonScan link
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="w-full">
+    <ExternalLink className="w-4 h-4 mr-2" />
+    View on Blockchain
+  </Button>
+</a>
+
                   </CardContent>
                 </Card>
               ))}

@@ -12,13 +12,23 @@ import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 import TargetCursor from "./components/TargetCursor";
 import LightRays from "./components/LightRays";
+import ViewOnBlockchain from "./pages/ViewOnBlockChain";  // ✅ make sure filename matches exactly
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+        }}
+      >
         <LightRays
           raysOrigin="top-center"
           raysColor="#00ffff"
@@ -31,10 +41,7 @@ const App = () => (
           distortion={0.05}
         />
       </div>
-      <TargetCursor 
-        spinDuration={2}
-        hideDefaultCursor={true}
-      />
+      <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       <Toaster />
       <Sonner />
       <BrowserRouter>
@@ -45,7 +52,11 @@ const App = () => (
           <Route path="/submit" element={<SubmitProject />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/badges" element={<BadgesPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* ✅ New Blockchain Route */}
+          <Route path="/blockchain" element={<ViewOnBlockchain />} />
+
+          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
